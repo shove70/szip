@@ -1,0 +1,11 @@
+{
+	"authors": [
+		"Shove"
+	],
+	"name": "szip",
+	"targetType": "library",
+	"license": "MIT License",
+	"copyright": "Copyright © 2017, Shove",
+	"targetName": "szip",
+	"description": "Zip file compression package format for personal use"
+}
