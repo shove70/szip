@@ -25,10 +25,10 @@ void zip(string sourceDirOrFileName, string outputFilename) {
     std.file.append(outputFilename, compress(buffer));
 }
 
-void unzip(string zipFilename, string outputPath) {
-    enforce(std.file.exists(zipFilename));
+void unzip(string szipFilename, string outputPath) {
+    enforce(std.file.exists(szipFilename));
 
-    ubyte[] buffer = cast(ubyte[])std.file.read(zipFilename);
+    ubyte[] buffer = cast(ubyte[])std.file.read(szipFilename);
     enforce(buffer[0 .. 2] == magic, "Not the szip file format.");
     buffer = cast(ubyte[])uncompress(buffer[2 .. $]);
 
