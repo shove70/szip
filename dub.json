@@ -3,9 +3,24 @@
 		"Shove"
 	],
 	"name": "szip",
-	"targetType": "library",
 	"license": "MIT License",
 	"copyright": "Copyright © 2017, Shove",
 	"targetName": "szip",
-	"description": "Zip file compression package format for personal use"
+	"description": "Zip file compression package format for personal use",
+    "configurations": [
+        {
+            "name": "library",
+            "targetType": "library",
+		    "sourcePaths": [
+				"src/szip"
+			]
+        },
+        {
+            "name": "execute",
+            "targetType": "executable",
+            "sourcePaths": [
+				"src"
+			]
+        }
+    ]
 }
