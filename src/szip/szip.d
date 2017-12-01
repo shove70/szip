@@ -21,6 +21,8 @@ void zip(string sourceDirOrFileName, string outputFilename) {
         readFile(sourceDirOrFileName, string.init, buffer);
     }
 
+    if (std.file.exists(outputFilename)) std.file.remove(outputFilename);
+
     std.file.write(outputFilename, magic);
     std.file.append(outputFilename, compress(buffer));
 }
