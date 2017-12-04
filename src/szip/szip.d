@@ -6,6 +6,7 @@ import std.algorithm;
 import std.exception;
 import std.bitmanip;
 import std.zlib;
+import std.string;
 
 const ubyte[] magic = [12, 29];
 
@@ -46,11 +47,11 @@ void unzip(string szipFilename, string outputPath) {
         ushort len = buffer.peek!ushort(1);
         string name = cast(string)buffer[3 .. 3 + len];
         if (type == 0x01) {
-            dir = std.path.buildPath(outputPath, name);
+            dir = _buildPath(outputPath, name);
             if (!std.file.exists(dir))	std.file.mkdirRecurse(dir);
             buffer = buffer[3 + len .. $];
         } else {
-            string filename = std.path.buildPath(dir, name);
+            string filename = _buildPath(dir, name);
             uint file_len = buffer.peek!uint(3 + len);
             ubyte[] content = buffer[3 + len + 4 .. 3 + len + 4 + file_len];
             std.file.write(filename, content);
@@ -61,13 +62,22 @@ void unzip(string szipFilename, string outputPath) {
 
 private:
 
+string _buildPath(string rootDir, string path) {
+    string full = std.path.buildPath(rootDir, path);
+    version(Windows) {
+        return full.replace("\\", "/");
+    } else {
+        return full;
+    }
+}
+
 void readFile(string dir, string rootDir, ref ubyte[] buffer) {
     foreach (DirEntry e; dirEntries(dir, SpanMode.shallow).filter!(a => a.isFile)) {
         put!"file"(e.name, buffer);
     }
 
     foreach (DirEntry e; dirEntries(dir, SpanMode.shallow).filter!(a => a.isDir)) {
-        string t = std.path.buildPath(rootDir, std.path.baseName(e.name));
+        string t = _buildPath(rootDir, std.path.baseName(e.name));
         put!"dir"(t, buffer);
         readFile(e.name, t, buffer);
     }
