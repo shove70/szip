@@ -12,7 +12,7 @@
             "name": "library",
             "targetType": "library",
 		    "sourcePaths": [
-				"src/szip"
+				"src"
 			]
         },
         {
