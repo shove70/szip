@@ -1,19 +1,19 @@
 {
-	"authors": [
-		"Shove"
-	],
-	"name": "szip-cmdline",
-	"license": "MIT License",
-	"copyright": "Copyright © 2017, Shove",
-	"targetName": "szip",
-	"targetType": "executable",
+    "authors": [
+        "Shove"
+    ],
+    "name": "szip-cmdline",
+    "license": "MIT License",
+    "copyright": "Copyright © 2017, Shove",
+    "targetName": "szip",
+    "targetType": "executable",
     "sourcePaths": [
         "src"
     ],
-    	"dependencies" : {
+    "dependencies": {
         "szip": {
             "path": "../"
         }
     },
-	"description": "Zip file compression package format for personal use"
+    "description": "Zip file compression package format for personal use"
 }

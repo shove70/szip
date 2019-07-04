@@ -1,0 +1,7 @@
+/.project
+/.dub/
+/dub.selections.json
+/libszip.a
+/szip
+/szip.exe
+/szip.lib

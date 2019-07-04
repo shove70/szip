@@ -35,7 +35,7 @@ void unzip(string szipFilename, string outputPath) {
     enforce(buffer[0 .. 2] == magic, "Not the szip file format.");
     buffer = cast(ubyte[])uncompress(buffer[2 .. $]);
 
-    if (!std.file.exists(outputPath))	std.file.mkdirRecurse(outputPath);
+    if (!std.file.exists(outputPath)) std.file.mkdirRecurse(outputPath);
 
     if (buffer.length == 0) {
         return;
@@ -48,7 +48,7 @@ void unzip(string szipFilename, string outputPath) {
         string name = cast(string)buffer[3 .. 3 + len];
         if (type == 0x01) {
             dir = _buildPath(outputPath, name);
-            if (!std.file.exists(dir))	std.file.mkdirRecurse(dir);
+            if (!std.file.exists(dir)) std.file.mkdirRecurse(dir);
             buffer = buffer[3 + len .. $];
         } else {
             string filename = _buildPath(dir, name);

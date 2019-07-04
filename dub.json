@@ -1,14 +1,14 @@
 {
-	"authors": [
-		"Shove"
-	],
-	"name": "szip",
-	"license": "MIT License",
-	"copyright": "Copyright © 2017, Shove",
-	"targetName": "szip",
-	"targetType": "library",
-	"sourcePaths": [
+    "authors": [
+        "Shove"
+    ],
+    "name": "szip",
+    "license": "MIT License",
+    "copyright": "Copyright © 2017, Shove",
+    "targetName": "szip",
+    "targetType": "library",
+    "sourcePaths": [
         "src"
     ],
-	"description": "Zip file compression package format for personal use"
+    "description": "Zip file compression package format for personal use"
 }
