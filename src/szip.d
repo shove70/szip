@@ -90,7 +90,7 @@ void put(string T = "dir")(string name, ref ubyte[] buffer) if (T == "dir" || T 
     buffer.write!ushort(cast(ushort)t.length, buffer.length - 2);
     buffer ~= cast(ubyte[])t;
     
-    if (T == "file") {
+    static if (T == "file") {
         ubyte[] content = cast(ubyte[])std.file.read(name);
         buffer ~= [0x00, 0x00, 0x00, 0x00];
         buffer.write!uint(cast(uint)content.length, buffer.length - 4);
