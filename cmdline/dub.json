@@ -4,7 +4,7 @@
     ],
     "name": "szip-cmdline",
     "license": "MIT",
-    "copyright": "Copyright © 2017, Shove",
+    "copyright": "Copyright © 2017-2020, Shove",
     "targetName": "szip",
     "targetType": "executable",
     "sourcePaths": [
